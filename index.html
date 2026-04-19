@@ -22,7 +22,6 @@
   .stage{display:flex; flex-direction:column; align-items:center; gap:14px; width:100%}
   .note{font:400 14px/1.4 "Libre Baskerville", serif; color:var(--hint); text-align:center}
 
-  /* Card shell */
   .wrap{perspective:1600px; width:var(--card-w); height:var(--card-h)}
   .card{width:100%; height:100%; position:relative; transform-style:preserve-3d;
         transition:transform 900ms cubic-bezier(.18,.82,.22,1); cursor:pointer; border-radius:14px;}
@@ -35,7 +34,6 @@
   .border{position:absolute; inset:18px; border-radius:10px; border:1px solid var(--edge);
           box-shadow: inset 0 0 0 3px rgba(255,255,255,.7);}
 
-  /* Front */
   .front{display:grid; place-items:center; padding:38px 40px;
          background:linear-gradient(180deg,#fffef9,#f9f5ed)}
   .cover{text-align:center; max-width:520px}
@@ -46,7 +44,6 @@
            background:linear-gradient(180deg,#9b6d3f,#7f552e); font:600 13px/1 "Libre Baskerville", serif; letter-spacing:.12em; text-transform:uppercase;
            box-shadow:0 10px 18px rgba(139,94,52,.25)}
 
-  /* Back (inside) — desktop layout */
   .back{transform:rotateY(-180deg); padding:26px 28px}
   .inner{
     position:relative; height:100%;
@@ -60,32 +57,30 @@
   .photo figure{margin:0; width:100%; height:100%; border-radius:12px; overflow:hidden; border:1px solid #e8e2d8; box-shadow:0 14px 28px rgba(0,0,0,.12)}
   .photo img{width:100%; height:100%; object-fit:cover; filter:grayscale(12%)}
 
-  /* ---------- Mobile: single scrolling column with image at the end ---------- */
   @media (max-width: 900px){
-    :root{ --card-w: 92vw; --card-h: 84vh; }   /* bigger reading area */
+    :root{ --card-w: 92vw; --card-h: 84vh; }
     body{ padding:16px; }
 
-    /* Inside page becomes one scrollable column */
     .inner{
       display:block;
       height:100%;
-      overflow:auto;                 /* the WHOLE inside scrolls */
+      overflow:auto;
       -webkit-overflow-scrolling:touch;
       padding:12px 14px 16px 14px;
     }
     .letter{
-      overflow:visible;              /* let text flow naturally */
+      overflow:visible;
       padding:6px 6px 10px 6px;
     }
     .photo{
-      padding:0; margin-top:12px;    /* sits after the letter */
+      padding:0; margin-top:12px;
     }
     .photo figure{
       height:auto;
       border-radius:12px; overflow:hidden;
     }
     .photo img{
-      width:100%; height:auto;       /* natural image height */
+      width:100%; height:auto;
       object-fit:contain; filter:none;
     }
   }
@@ -95,40 +90,42 @@
   <div class="stage">
     <div class="note">Tap anywhere on the card to open</div>
 
-    <div class="wrap" role="button" aria-label="Open card">
-      <div id="card" class="card" tabindex="0" aria-haspopup="true" aria-expanded="false">
-        <!-- FRONT -->
+    <div class="wrap">
+      <div id="card" class="card" tabindex="0">
+
         <section class="face front">
-          <div class="border" aria-hidden="true"></div>
+          <div class="border"></div>
           <div class="cover">
             <div class="brand">Yufei &amp; Justin</div>
             <h1 class="title">Will you be my groomsman?</h1>
-            <p class="subtitle">Raul, I’ve got something special to ask you.</p>
+            <p class="subtitle">James, I’ve got something special to ask you.</p>
             <span class="openBtn">Open card</span>
           </div>
         </section>
 
-        <!-- BACK -->
         <section class="face back">
-          <div class="border" aria-hidden="true"></div>
+          <div class="border"></div>
           <div class="inner">
-            <article class="letter" aria-label="Letter">
-              <h2>Raul,</h2>
-              <p>You’re my oldest friend and I cannot think of anyone better to stand by my side at the altar a year from now. These past two weeks have been incredible. I’m so incredibly blessed to have created so many new memories and experiences with you… dare I say we’ll be doing that for the rest of our days.</p>
-              <p>From being there for the big moments watching you and Jen getting married to the small moments of pigging out on food and sitting around Beecroft doing nothing, I cannot wait for you both to come back so we can do it again and again and again.</p>
-              <p>When I wrote in your card I cannot wait for our next chapter I truly meant it. Dirty thirties, being married, having kids, Saturday tennis lessons, and encouraging them to play with each other until they’re family like us, beating them if they don’t — I look forward to it every day. August 30 brings us closer to that dream.</p>
-              <p>I hate that you both have to go but I’ll see you back in Sydney soon.</p>
-              <p class="signoff">I love you like a brother, Raul.<br><strong>Love, Justin</strong></p>
+            <article class="letter">
+              <h2>James,</h2>
+
+              <p>How fateful it was to start as Jess’ bestie’s boyfriend to HotD nights to Chauvel Chavs to AO25 to AO26 to ?AO27. Throughout that time, you were always there when it mattered. Weddings, funerals, birthdays, a random hangout on a Tuesday night and somehow in all of that you transformed from a stranger to a family member that I can’t imagine what a life without.</p>
+
+              <p>It wouldn’t be the same without your unpredictability (read retardation), energy, racism yet strange admiration for Chairman Mao, curiosity and pursuit for the most random projects, principled (but wrong) takes but also just being a constant figure in my life always with something interesting to chat about. Can’t wait to have you up there when Yufei and I get married, for our future China trip together, babysitting your kids, getting you a point where you look elegant on a tennis court… it’s alright we have a lifetime ahead of us. I’ll need all the time I can get…</p>
+
+              <p>I love you dearly ❤️❤️</p>
+
+              <p class="signoff">I’ll Squirtle all over you tonight,<br><strong>Your twink A.K.A Big Dog Deal King</strong></p>
             </article>
 
-            <!-- Image becomes part of the flow on mobile -->
-            <div class="photo" aria-label="Photo">
+            <div class="photo">
               <figure>
-                <img src="assets/raul.jpg" alt="Raul and friends celebrating at a wedding">
+                <img src="assets/IMG_0862.jpeg" alt="Justin and James together">
               </figure>
             </div>
           </div>
         </section>
+
       </div>
     </div>
   </div>
@@ -136,8 +133,7 @@
 <script>
   const card = document.getElementById('card');
   function toggleOpen(){
-    const open = card.classList.toggle('open');
-    card.setAttribute('aria-expanded', open ? 'true' : 'false');
+    card.classList.toggle('open');
   }
   card.addEventListener('click', toggleOpen);
   card.addEventListener('keydown', (e)=>{
